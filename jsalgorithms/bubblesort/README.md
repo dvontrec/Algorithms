@@ -1,5 +1,0 @@
-- loops through an array to sort from smallest to largest
-- loops from end to beginning
-  - inner loop from beginning to i -1
-  - if current index is bigger than next switch them
-- returns a sorted array

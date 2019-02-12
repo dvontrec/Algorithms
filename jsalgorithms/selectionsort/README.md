@@ -1,0 +1,4 @@
+- Store the first element as the smallest value so far
+- Compare this item to the next item in the array until the smallest number is found
+- If the min is not already at the current pointer index swap them
+- Pointer moves from 0 to last index of the array

@@ -75,3 +75,17 @@ func (s *Sll) pop() Node {
 	fmt.Println(s.Length)
 	return r
 }
+
+func (s Sll) print() string {
+	v := ""
+	n := s.Head
+	for n.Next != nil {
+		fmt.Println(n.Val)
+		v += fmt.Sprintf("%v", n.Val)
+		n = n.Next
+		if n.Next != nil {
+			v += " -> "
+		}
+	}
+	return v
+}

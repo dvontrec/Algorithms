@@ -33,7 +33,7 @@ func TestSllPop(t *testing.T) {
 	s.push(15)
 	n := s.pop()
 	if n.Val != 31 {
-		t.Errorf("Expected to get the final node 32, instead got %v", n.Val)
+		t.Errorf("Expected to get the final node 31, instead got %v", n.Val)
 	}
 	if s.Tail.Val != 11 {
 		t.Errorf("Forgot to remove the final tail from the list should be 11, instead got %v", s.Tail.Val)

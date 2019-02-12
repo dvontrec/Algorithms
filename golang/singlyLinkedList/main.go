@@ -5,5 +5,6 @@ import "fmt"
 func main() {
 	fmt.Println("hello world")
 	s := newSll()
-	fmt.Println(s)
+	s.push(5)
+	s.push(8)
 }

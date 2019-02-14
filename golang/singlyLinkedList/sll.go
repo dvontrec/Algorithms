@@ -95,6 +95,10 @@ func (s *Sll) unshift(val int) {
 
 }
 
+func (s *Sll) get(index int) Node {
+
+}
+
 func (s Sll) print() string {
 	v := ""
 	n := s.Head

@@ -96,6 +96,16 @@ func TestSllUnshift(t *testing.T) {
 
 }
 func TestSllGet(t *testing.T) {
+	s := createTestSll()
+	n1 := s.get(1)
+	n2 := s.get(5)
+	if n1.Val != 31 {
+		t.Errorf("Searched for the node at index 1 11, instead got %v", n1.Val)
+	}
+
+	if &n2 != nil {
+		t.Errorf("Searched for out of range index, expected nil, instead got %v", n2)
+	}
 
 }
 func TestSllSet(t *testing.T) {

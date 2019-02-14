@@ -57,7 +57,6 @@ func (s *Sll) pop() Node {
 	i := 1
 	for i < s.Length-1 {
 		i++
-		fmt.Println(t.Val)
 		t = *t.Next
 	}
 
@@ -72,8 +71,15 @@ func (s *Sll) pop() Node {
 	}
 	t.Next = r.Next
 	s.Tail = &t
-	fmt.Println(s.Length)
 	return r
+}
+
+func (s *Sll) shift() Node {
+	return *s.Head
+}
+
+func (s *Sll) unshift(val int) {
+
 }
 
 func (s Sll) print() string {

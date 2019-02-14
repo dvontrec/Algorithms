@@ -31,19 +31,15 @@ func (s *Sll) push(val int) {
 		val,
 		nil,
 	}
-	// if there is a head grab it
-	h := s.Head
-	// if there is no head
-	if h != nil {
-		//set the old head to be the tail of the new node
-		n.Next = h
-	}
-	// if no tail set new node to be tail
+	// if no tail set new node to be the head and the tail
+	s.Length++
 	if s.Tail == nil {
 		s.Tail = &n
+		s.Head = &n
+		return
 	}
-	s.Head = &n
-	s.Length++
+	s.Tail.Next = &n
+	s.Tail = &n
 
 }
 
@@ -75,21 +71,37 @@ func (s *Sll) pop() Node {
 }
 
 func (s *Sll) shift() Node {
-	return *s.Head
+	// if the length is 0 return null
+	if s.Length == 0 {
+		return *s.Head
+	}
+	h := *s.Head
+	s.Head = h.Next
+	h.Next = nil
+	s.Length--
+	return h
 }
 
 func (s *Sll) unshift(val int) {
+	n := Node{
+		val,
+		s.Head,
+	}
+	s.Length++
+	s.Head = &n
+	if s.Tail == nil {
+		s.Tail = &n
+	}
 
 }
 
 func (s Sll) print() string {
 	v := ""
 	n := s.Head
-	for n.Next != nil {
-		fmt.Println(n.Val)
+	for n != nil {
 		v += fmt.Sprintf("%v", n.Val)
 		n = n.Next
-		if n.Next != nil {
+		if n != nil {
 			v += " -> "
 		}
 	}

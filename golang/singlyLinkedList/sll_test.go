@@ -42,8 +42,8 @@ func TestSllPop(t *testing.T) {
 	s := createTestSll()
 	n := s.pop()
 
-	if n.Val != 31 {
-		t.Errorf("Expected to get the final node 31, instead got %v", n.Val)
+	if n.Val != 15 {
+		t.Errorf("Expected to get the final node 15, instead got %v", n.Val)
 	}
 	if s.Tail.Val != 11 {
 		t.Errorf("Forgot to remove the final tail from the list should be 11, instead got %v", s.Tail.Val)
@@ -78,12 +78,12 @@ func TestSllShift(t *testing.T) {
 	}
 
 }
-func TestSllPopUnshift(t *testing.T) {
+func TestSllUnshift(t *testing.T) {
 	s := createTestSll()
 	s.unshift(25)
 
 	if s.Head.Val != 25 {
-		t.Errorf("Ecpected the new head to be 25, instead got %v", s.Head.Val)
+		t.Errorf("Expected the new head to be 25, instead got %v", s.Head.Val)
 	}
 
 	if s.Head.Next.Val != 31 {

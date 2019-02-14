@@ -96,7 +96,19 @@ func (s *Sll) unshift(val int) {
 }
 
 func (s *Sll) get(index int) Node {
-
+	if index < 0 {
+		return Node{}
+	}
+	i := 0
+	n := s.Head
+	for i < s.Length {
+		if i == index {
+			return *n
+		}
+		n = n.Next
+		i++
+	}
+	return Node{}
 }
 
 func (s Sll) print() string {

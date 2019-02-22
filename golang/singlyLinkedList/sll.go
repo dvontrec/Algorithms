@@ -120,10 +120,44 @@ func (s *Sll) set(index int, val int) {
 }
 
 func (s *Sll) insert(index int, val int) {
+	if index < 0 || index > s.Length {
+		return
+	}
+	if index == s.Length {
+		s.push(val)
+		return
+	}
+	if index == 0 {
+		s.unshift(val)
+	}
 
+	pre := s.get(index - 1)
+	next := pre.Next
+	n := Node{
+		val,
+		next,
+	}
+	pre.Next = &n
+	s.Length++
 }
-func (s *Sll) remove(index int) {
+func (s *Sll) remove(index int) *Node {
+	if index < 0 || index >= s.Length {
+		return nil
+	}
+	if index == s.Length-1 {
+		return s.pop()
+	}
+	if index == 0 {
+		return s.shift()
+	}
 
+	n := s.get(index)
+	prev := s.get(index - 1)
+	next := n.Next
+	prev.Next = next
+	n.Next = nil
+	s.Length--
+	return n
 }
 
 func (s Sll) print() string {

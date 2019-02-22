@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -100,6 +99,7 @@ func TestSllGet(t *testing.T) {
 	s := createTestSll()
 	n1 := s.get(1)
 	n2 := s.get(5)
+
 	if n1.Val != 11 {
 		t.Errorf("Searched for the node at index 1 11, instead got %v", n1.Val)
 	}
@@ -107,7 +107,6 @@ func TestSllGet(t *testing.T) {
 	if n2 != nil {
 		t.Errorf("Searched for out of range index, expected nil, instead got %v", n2)
 	}
-	fmt.Println(n2)
 
 }
 func TestSllSet(t *testing.T) {
@@ -142,8 +141,14 @@ func TestSllInsert(t *testing.T) {
 }
 func TestSllRemove(t *testing.T) {
 	s := createTestSll()
-	s.remove(1)
+	n := s.remove(1)
 
+	if n.Val != 11 {
+		t.Errorf("THe correct node was not removed, should be 11 instead got %v", n.Val)
+	}
+	if n.Next != nil {
+		t.Errorf("Did not sever connection from removed node, should get nil instead got %v", n.Next)
+	}
 	if s.get(1).Val != 15 {
 		t.Errorf("The node at index 1 was not removed, should get 15, instead go %v", s.get(1).Val)
 	}

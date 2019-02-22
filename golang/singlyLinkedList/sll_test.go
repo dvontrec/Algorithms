@@ -104,14 +104,19 @@ func TestSllGet(t *testing.T) {
 		t.Errorf("Searched for the node at index 1 11, instead got %v", n1.Val)
 	}
 
-	if n2.Val != 0 {
+	if n2 != nil {
 		t.Errorf("Searched for out of range index, expected nil, instead got %v", n2)
 	}
 	fmt.Println(n2)
 
 }
 func TestSllSet(t *testing.T) {
+	s := createTestSll()
+	s.set(1, 13)
 
+	if s.get(1).Val != 13 {
+		t.Errorf("Index 1 was not set to be 13, instead got %v", s.get(1).Val)
+	}
 }
 
 func TestSllInsert(t *testing.T) {

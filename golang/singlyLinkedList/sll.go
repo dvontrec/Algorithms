@@ -43,17 +43,17 @@ func (s *Sll) push(val int) {
 
 }
 
-func (s *Sll) pop() Node {
+func (s *Sll) pop() *Node {
 	// if the length is 0 return null
 	if s.Length == 0 {
-		return *s.Head
+		return nil
 	}
-	t := *s.Head
-	r := *s.Tail
+	t := s.Head
+	r := s.Tail
 	i := 1
 	for i < s.Length-1 {
 		i++
-		t = *t.Next
+		t = t.Next
 	}
 
 	s.Length--
@@ -66,16 +66,16 @@ func (s *Sll) pop() Node {
 		return r
 	}
 	t.Next = r.Next
-	s.Tail = &t
+	s.Tail = t
 	return r
 }
 
-func (s *Sll) shift() Node {
+func (s *Sll) shift() *Node {
 	// if the length is 0 return null
 	if s.Length == 0 {
-		return *s.Head
+		return nil
 	}
-	h := *s.Head
+	h := s.Head
 	s.Head = h.Next
 	h.Next = nil
 	s.Length--
@@ -95,20 +95,28 @@ func (s *Sll) unshift(val int) {
 
 }
 
-func (s *Sll) get(index int) Node {
+func (s *Sll) get(index int) *Node {
 	if index < 0 {
-		return Node{}
+		return nil
 	}
 	i := 0
 	n := s.Head
 	for i < s.Length {
 		if i == index {
-			return *n
+			return n
 		}
 		n = n.Next
 		i++
 	}
-	return Node{}
+	return nil
+}
+func (s *Sll) set(index int, val int) {
+	if index < 0 || index >= s.Length {
+		return
+	}
+	n := s.get(index)
+	n.Val = val
+
 }
 
 func (s Sll) print() string {

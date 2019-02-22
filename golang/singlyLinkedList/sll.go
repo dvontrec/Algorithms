@@ -119,6 +119,13 @@ func (s *Sll) set(index int, val int) {
 
 }
 
+func (s *Sll) insert(index int, val int) {
+
+}
+func (s *Sll) remove(index int) {
+
+}
+
 func (s Sll) print() string {
 	v := ""
 	n := s.Head

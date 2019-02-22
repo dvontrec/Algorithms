@@ -120,10 +120,41 @@ func TestSllSet(t *testing.T) {
 }
 
 func TestSllInsert(t *testing.T) {
+	s := createTestSll()
+	s.insert(1, 93)
+
+	if s.get(1).Val != 93 {
+		t.Errorf("Index 1 was not set to 93, instead got %v", s.get(1).Val)
+	}
+
+	if s.get(1).Next.Val != 11 {
+		t.Errorf("Index 1 was not set to 8, instead got %v", s.get(1).Val)
+	}
+
+	if s.get(0).Next.Val != 93 {
+		t.Errorf("Previous node was not linked, next should be 93 instead got %v", s.get(0).Next.Val)
+	}
+
+	if s.Length != 4 {
+		t.Errorf("THe length was not increased, should get 4, instead got %v", s.Length)
+	}
 
 }
 func TestSllRemove(t *testing.T) {
+	s := createTestSll()
+	s.remove(1)
 
+	if s.get(1).Val != 15 {
+		t.Errorf("The node at index 1 was not removed, should get 15, instead go %v", s.get(1).Val)
+	}
+
+	if s.get(0).Next.Val != 15 {
+		t.Errorf("The previous node was not linked correctly, should get 15 instead got %v", s.get(0).Next.Val)
+	}
+
+	if s.Length != 2 {
+		t.Errorf("The length was not decreased, should get 2, instead got %v", s.Length)
+	}
 }
 func TestSllReverse(t *testing.T) {
 

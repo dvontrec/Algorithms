@@ -19,3 +19,10 @@ func reverse(s string) string {
 	}
 	return r
 }
+
+func recursiveReverse(s string) string {
+	if s != "" {
+		return recursiveReverse(s[1:]) + s[:1]
+	}
+	return ""
+}

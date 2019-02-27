@@ -15,3 +15,15 @@ func TestReverse(t *testing.T) {
 		t.Errorf("Expected !sgniteerG, instead got %v", reverse("Greetings!"))
 	}
 }
+
+func TestRecursiveReverse(t *testing.T) {
+	if recursiveReverse("apple") != "elppa" {
+		t.Errorf("Expected leppa, instead got %v", recursiveReverse("apple"))
+	}
+	if recursiveReverse("hello") != "olleh" {
+		t.Errorf("Expected olleh, instead got %v", recursiveReverse("hello"))
+	}
+	if recursiveReverse("Greetings!") != "!sgniteerG" {
+		t.Errorf("Expected !sgniteerG, instead got %v", recursiveReverse("Greetings!"))
+	}
+}

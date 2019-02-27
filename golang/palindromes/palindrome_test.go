@@ -15,3 +15,17 @@ func TestIsPalindrome(t *testing.T) {
 	}
 
 }
+
+func TestRecursiveIsPalindrome(t *testing.T) {
+	if recursiveIsPalindrome("abba") != true {
+		t.Errorf("Expected true for abba, instead got %v", recursiveIsPalindrome("abba"))
+	}
+	if recursiveIsPalindrome("funny right?") != false {
+		t.Errorf("Expected false for funny right?, instead got %v", recursiveIsPalindrome("funnyright"))
+	}
+
+	if recursiveIsPalindrome("racecar") != true {
+		t.Errorf("Expected true for racecar, instead got %v", isPalindrome("racecar"))
+	}
+
+}

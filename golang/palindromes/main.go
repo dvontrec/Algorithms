@@ -12,3 +12,7 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
+
+func recursiveIsPalindrome(s string) bool {
+	return true
+}

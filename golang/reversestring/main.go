@@ -9,12 +9,13 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello World")
+	fmt.Println(recursiveReverse("hello there"))
 }
 
 // function recieves a string and returns the string reversed
 func reverse(s string) string {
 	var r string
+	// adds the char to the string resulting in reversed order
 	for i := range s {
 		r = string(s[i]) + r
 	}
@@ -23,7 +24,9 @@ func reverse(s string) string {
 
 func recursiveReverse(s string) string {
 	if s != "" {
+		// if the string is not empty return the next character
 		return recursiveReverse(s[1:]) + s[:1]
 	}
+	// stop the recursive calls sending the reversed string
 	return ""
 }
